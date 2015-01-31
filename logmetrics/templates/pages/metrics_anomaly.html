@@ -1,0 +1,78 @@
+{% extends 'layouts/main.html' %}
+{% block title %}Home{% endblock %}
+{% block content %}
+
+<style type="text/css">
+        .important {
+                font-weight: bold;
+                color: blue;
+        }
+        .notimportant {
+                font-weight: bold;
+                color: red;
+        }
+        #range
+        {
+           position:absolute;
+           height:100%;
+          top: 0;
+        }
+       #example {
+         margin: 0 auto;
+         clear: both;
+         width: 100%;
+       }
+       #example1 {
+         margin: 0 auto;
+         clear: both;
+         width: 100%;
+       }
+       .dataTables tbody tr {
+           min-height: 100px; /* or whatever height you need to make them all consistent */
+       }
+
+       .flot-x-axis div.flot-tick-label {
+           /* Rotate Axis Labels */
+           transform: translateX(50%) rotate(60deg); /* CSS3 */
+           transform-origin: 0 0;
+
+           -ms-transform: translateX(50%) rotate(60deg); /* IE */
+           -ms-transform-origin: 0 0;
+
+           -moz-transform: translateX(50%) rotate(60deg); /* Firefox */
+           -moz-transform-origin: 0 0;
+
+           -webkit-transform: translateX(50%) rotate(60deg); /* Safari and Chrome */
+           -webkit-transform-origin: 0 0;
+       }
+
+       body div.ui-slider-range.ui-widget-header {
+          background:blue;
+       }
+
+       body div.ui-slider-horizontal {
+          width:400px;
+       }
+
+</style>
+
+<form action="" method=post enctype=multipart/form-data>
+      <p><input type=file name=file>
+         <input type=submit value=Upload>
+</form>
+
+<div class="page-header">
+  <h1>Metrics Anomaly</h1>
+</div>
+
+
+<div id="placeholder" style="width:800px;height:400px;"></div>
+<br>
+<br>
+<p id="choices" style="font-size:large">Plot Metrics (anomalies highlighted in red):</p>
+
+<script defer src="/static/js/metricsanomaly.js"></script>
+
+{% endblock %}
+
+
