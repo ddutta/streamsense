@@ -50,7 +50,7 @@ app = Flask(__name__)
 app.config.from_object('config')
 db = SQLAlchemy(app)
 es = Search()
-app.config('es') = es
+#app.config('es') = es
 
 # Automatically tear down SQLAlchemy.
 #@app.teardown_request
@@ -143,12 +143,12 @@ def render_cluster_output():
 def render_cluster_serverside_output():
     global processing_done
     global raw_data
-    print "entering output.json:"+ str(datetime.datetime.now().time())
+    #print "entering output.json:"+ str(datetime.datetime.now().time())
     if (processing_done == 0):
        raw_data = create_cluster_output()
        raw_data.sort(key=lambda x: float(json.loads(x)["sortfield"]))
        processing_done = 1
-    print "finished output.json:"+ str(datetime.datetime.now().time())
+    #print "finished output.json:"+ str(datetime.datetime.now().time())
     startlines = int(request.values['start'])
     numlines = int(request.values['length'])
     alllines = len(raw_data)
